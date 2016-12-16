@@ -1,7 +1,8 @@
 'use strict';
 
 chrome.storage.local.get('list', function (res) {
-    var list = res.list || [];
+    var list = res.list;
+    if (!list) return;
     list = list.map(function (item) {
         return item.rule;
     });
